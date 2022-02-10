@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 April 2011 7:52:33 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.hibernate.association.xml.model.Job" table="job_m2m">
+		<id name="jobId" type="java.lang.Integer">
+			<column name="jobId" />
+			<generator class="native" />
+		</id>
+		<property name="jobName" type="string">
+			<column name="jobName" length="10" not-null="true" unique="true" />
+		</property>
+		<set name="Company" cascade="save-update">
+			<key column="jobId" not-null="true"></key>
+			<many-to-many class="com.hibernate.association.xml.model.Company"></many-to-many>
+		</set>
+	</class>
+	<class name="com.hibernate.association.xml.model.Company" table="company_m2m">
+		<id name="companyId" type="java.lang.Integer">
+			<column name="companyId" />
+			<generator class="native" />
+		</id>
+		<property name="companyName" type="string">
+			<column name="companyName" length="10" not-null="true" unique="true" />
+		</property>
+	</class>
+</hibernate-mapping>
