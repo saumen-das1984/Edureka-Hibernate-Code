@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 April 2011 7:52:33 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.hibernate.inheritence.xml.model.PermanentEmployee" table="permanent_employee">
+		<id name="empId">
+			<generator class="increment"/>
+		</id>
+
+		<property name="empName"/>
+		<property name="monthlyPayment"/>
+	</class>	
+		
+	<class name="com.hibernate.inheritence.xml.model.ContractEmployee" table="contract_employee">
+		<id name="empId">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="empName"/>
+		<property name="hourlyPayment"/>
+	</class>
+	
+</hibernate-mapping>
