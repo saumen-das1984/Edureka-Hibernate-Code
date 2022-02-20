@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 April 2011 7:52:33 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.hibernate.sql.xml.model.Employee" table="employee">
+		<id name="empId">
+			<generator class="increment"/>
+		</id>
+
+		<property name="empName"/>
+		<property name="salary"/>
+		<property name="age"/>
+		<property name="deptId"/>
+	</class>
+	
+	<class name="com.hibernate.sql.xml.model.AnotherEmployee" table="another_employee">
+		<id name="empId">
+			<generator class="increment"/>
+		</id>
+
+		<property name="empName"/>
+		<property name="salary"/>
+		<property name="age"/>
+		<property name="deptId"/>
+
+		<list name="skills" fetch="select">
+			<key column="skillId"/>
+			<index column="skillType"/>
+			<element column="skillName" type="string"/>
+		</list>
+		
+	</class>
+	
+	<sql-query name="namedEmployeeQuery">
+		<return alias="employee" class="com.hibernate.sql.xml.model.Employee"/>
+		select * from employee employee where empId=:empId
+	</sql-query>
+	
+</hibernate-mapping>
